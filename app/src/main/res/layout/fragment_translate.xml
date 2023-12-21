@@ -7,15 +7,6 @@
     android:orientation="vertical"
     tools:context=".TranslateFragment">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-
-        android:background="?attr/colorPrimaryContainer"
-        android:minHeight="?attr/actionBarSize"
-        app:navigationIcon="@drawable/title_icon"
-        android:theme="?attr/actionBarTheme" />
     <ScrollView
         android:layout_width="match_parent"
         android:padding="8dp"
@@ -30,42 +21,33 @@
                 android:layout_marginTop="40dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
-            <LinearLayout
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
-                    android:hint="元言語"
-                    android:layout_margin="5dp"
+                    android:hint="Target Language"
+                    android:layout_marginTop="40dp"
                     android:layout_height="wrap_content"
                     style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_weight="1">
                     <AutoCompleteTextView
+                        android:id="@+id/tolgEdit"
                         android:textSize="20sp"
+                        app:simpleItems="@array/language"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"/>
                 </com.google.android.material.textfield.TextInputLayout>
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="match_parent"
-                    android:hint="翻訳言語"
-                    android:layout_margin="5dp"
-
-                    android:layout_height="wrap_content"
-                    style="@style/Widget.Material3.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                    android:layout_weight="1">
-                    <AutoCompleteTextView
-                        android:textSize="20sp"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
             <EditText
+                android:id="@+id/fromtextEdit"
                 android:layout_marginTop="40dp"
-                android:hint="翻訳内容を入力"
+                android:hint="Enter text"
                 android:inputType="none"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+            <Button
+                android:id="@+id/trbt"
+                android:text="Translate"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <ImageView
                 android:layout_marginTop="20dp"
@@ -73,6 +55,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <TextView
+                android:id="@+id/resText"
                 android:layout_marginTop="20dp"
                 android:textSize="20sp"
                 android:text="result"
@@ -84,12 +67,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
+                    android:id="@+id/charsavebt"
                     android:layout_margin="5dp"
                     android:text="単語として保存"
                     android:layout_weight="1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <Button
+                    android:id="@+id/textsavebt"
                     android:layout_margin="5dp"
                     android:text="表現として保存"
                     android:layout_weight="1"
