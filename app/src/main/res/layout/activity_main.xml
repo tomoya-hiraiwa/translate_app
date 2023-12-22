@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".UI.MainActivity">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
         android:id="@+id/fragmentContainerView"
         android:layout_width="match_parent"
         android:layout_weight="1"
-        android:name="edu.wsc2022.a01.mrtranslate.TranslateFragment"
+        android:name="edu.wsc2022.a01.mrtranslate.UI.TranslateFragment"
         android:layout_height="match_parent" />
 
     <com.google.android.material.tabs.TabLayout
@@ -27,16 +27,19 @@
         android:layout_height="wrap_content">
 
         <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/baseline_g_translate_24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Translate" />
 
         <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/baseline_local_library_24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Library" />
 
         <com.google.android.material.tabs.TabItem
+            android:icon="@drawable/baseline_settings_24"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Setting" />

@@ -1,9 +1,10 @@
-package edu.wsc2022.a01.mrtranslate
+package edu.wsc2022.a01.mrtranslate.UI
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
+import edu.wsc2022.a01.mrtranslate.R
 import edu.wsc2022.a01.mrtranslate.databinding.ActivityMainBinding
 const val Token = "enter your token"
 class MainActivity : AppCompatActivity() {

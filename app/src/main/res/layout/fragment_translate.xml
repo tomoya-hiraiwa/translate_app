@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".TranslateFragment">
+    tools:context=".UI.TranslateFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -50,6 +50,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
             <ImageView
+                android:id="@+id/arrow"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/baseline_arrow_downward_24"
                 android:layout_width="match_parent"
@@ -67,6 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <Button
+                    android:enabled="false"
                     android:id="@+id/charsavebt"
                     android:layout_margin="5dp"
                     android:text="単語として保存"
@@ -74,6 +76,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"/>
                 <Button
+                    android:enabled="false"
                     android:id="@+id/textsavebt"
                     android:layout_margin="5dp"
                     android:text="表現として保存"
