@@ -19,40 +19,8 @@
             android:layout_marginTop="40dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
-        <TextView
-            android:textSize="20sp"
 
-            android:layout_marginTop="40dp"
-            android:text="Change Theme"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <RadioGroup
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal"
-                android:id="@+id/rgp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <RadioButton
-                    android:checked="true"
-                    android:id="@+id/normalrb"
-                    android:text="Normal theme"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-                <RadioButton
-                    android:id="@+id/darkrb"
-                    android:text="Dark theme"
-                    android:layout_weight="1"
-                    android:layout_margin="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
-            </RadioGroup>
-        </LinearLayout>
+
         <TextView
             android:textSize="20sp"
             android:layout_marginTop="70dp"
@@ -69,6 +37,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <Button
+            android:id="@+id/delbt"
             android:layout_gravity="center"
             android:text="Delete History"
             android:layout_marginTop="40dp"
@@ -103,6 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
         <CheckBox
+            android:id="@+id/delcheck"
             android:textAlignment="center"
             android:text="I want delete all history."
             android:layout_width="match_parent"

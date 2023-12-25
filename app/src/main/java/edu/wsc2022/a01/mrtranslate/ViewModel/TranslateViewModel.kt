@@ -57,5 +57,6 @@ class TranslateViewModel: ViewModel() {
         db.delete(LibraryHelper.textTable,null,null)
         db.delete(LibraryHelper.wordTable,null,null)
         }
+        getData(helper,1)
     }
 }
