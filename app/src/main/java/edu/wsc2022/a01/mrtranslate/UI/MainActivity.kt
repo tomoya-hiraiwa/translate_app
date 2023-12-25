@@ -6,7 +6,7 @@ import androidx.fragment.app.Fragment
 import com.google.android.material.tabs.TabLayout
 import edu.wsc2022.a01.mrtranslate.R
 import edu.wsc2022.a01.mrtranslate.databinding.ActivityMainBinding
-const val Token = "e27d2fcf-6692-2fd0-4a41-aed3a0677514:fx"
+const val Token = "enter your token"
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
