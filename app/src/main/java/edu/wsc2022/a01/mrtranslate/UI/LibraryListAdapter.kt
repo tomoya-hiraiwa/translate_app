@@ -11,8 +11,8 @@ class LibraryListAdapter(private val dataList: MutableList<LibraryData>): Recycl
         fun bindData(data: LibraryData){
             binding.fromText.text = data.fromText
             binding.toText.text = data.toText
-            binding.fromLg.text = "from: ${data.fromLg}"
-            binding.toLg.text = "to: ${data.toLg}"
+            binding.fromLg.text = "from: ${data.toLg}"
+            binding.toLg.text = "to: ${data.fromLg}"
         }
     }
 

@@ -2,6 +2,8 @@ package edu.wsc2022.a01.mrtranslate.UI
 
 import android.content.res.Configuration
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,6 +19,7 @@ import edu.wsc2022.a01.mrtranslate.DataBase.LibraryHelper
 import edu.wsc2022.a01.mrtranslate.R
 import edu.wsc2022.a01.mrtranslate.ViewModel.TranslateViewModel
 import edu.wsc2022.a01.mrtranslate.databinding.FragmentSettingBinding
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 
@@ -56,9 +59,15 @@ private lateinit var behavior: BottomSheetBehavior<LinearLayout>
             behavior.state = BottomSheetBehavior.STATE_HIDDEN
         }
         }
-
-
-
+        lifecycleScope.launch {
+            while (true){
+                delay(1000)
+                if (behavior.state  == BottomSheetBehavior.STATE_HIDDEN){
+                    binding.delcheck.isChecked = false
+                    binding.sheetDelbt.isEnabled = false
+                }
+            }
+        }
 
 
     }

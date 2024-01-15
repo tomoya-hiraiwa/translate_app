@@ -59,4 +59,12 @@ class TranslateViewModel: ViewModel() {
         }
         getData(helper,1)
     }
+    suspend fun filterData(fromLg: String = "",toLg: String = "",fromText: String = "",toText: String = "",page: Int ){
+        var originData = if(page == 0) originWordList else originTextList
+        if (fromLg != "") originData  = originData.filter { it.fromLg == fromLg }.toMutableList()
+        if (toLg != "") originData = originData.filter { it.toLg == toLg }.toMutableList()
+        if (fromText != "") originData = originData.filter { it.fromText == fromText }.toMutableList()
+        if (toText != "") originData = originData.filter { it.toText == toText }.toMutableList()
+        libList.value = originData
+    }
 }

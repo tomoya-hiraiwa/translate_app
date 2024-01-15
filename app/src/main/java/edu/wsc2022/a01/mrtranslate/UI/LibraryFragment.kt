@@ -1,5 +1,6 @@
 package edu.wsc2022.a01.mrtranslate.UI
 
+import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -13,13 +14,15 @@ import edu.wsc2022.a01.mrtranslate.DataBase.LibraryHelper
 import edu.wsc2022.a01.mrtranslate.R
 import edu.wsc2022.a01.mrtranslate.ViewModel.TranslateViewModel
 import edu.wsc2022.a01.mrtranslate.databinding.FragmentLibraryBinding
+import edu.wsc2022.a01.mrtranslate.databinding.SearchDialogBinding
 import kotlinx.coroutines.launch
 
 
 class LibraryFragment : Fragment() {
     private lateinit var viewModel: TranslateViewModel
-private lateinit var binding: FragmentLibraryBinding
-private lateinit var helper: LibraryHelper
+    private lateinit var binding: FragmentLibraryBinding
+    private lateinit var helper: LibraryHelper
+    private lateinit var pageTab: TabLayout
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -35,7 +38,7 @@ private lateinit var helper: LibraryHelper
         helper = LibraryHelper(requireContext())
         val list = binding.list
         list.layoutManager = LinearLayoutManager(requireContext())
-        val tab = binding.tab
+         pageTab = binding.tab
         viewModel.libList.observe(viewLifecycleOwner){attachData ->
             val adapter = LibraryListAdapter(attachData)
             list.adapter = adapter
@@ -43,7 +46,7 @@ private lateinit var helper: LibraryHelper
         lifecycleScope.launch {
             viewModel.getData(helper,1)
         }
-        tab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
+        pageTab.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {
                when(tab?.position){
                    0 -> attachData(1)
@@ -60,11 +63,37 @@ private lateinit var helper: LibraryHelper
             }
 
         })
+        binding.searchBt.setOnClickListener {
+            searchDialog()
+        }
+
     }
     private fun attachData(type: Int){
         lifecycleScope.launch {
             viewModel.getData(helper,type)
         }
+    }
+    private fun searchDialog(){
+        Dialog(requireContext()).apply {
+            val binding = SearchDialogBinding.inflate(layoutInflater)
+            setContentView(binding.root)
+            val fromLgEdit = binding.seFromEdit
+            val toLgEdit = binding.seToEdit
+            fromLgEdit.isFocusable = false
+            toLgEdit.isFocusable = false
+            binding.seSebt.setOnClickListener {
+                val fromLg = fromLgEdit.text.toString()
+                val toLg = toLgEdit.text.toString()
+                val fromText = binding.seFromtextEdit.text.toString()
+                val toText = binding.seTotextEdit.text.toString()
+                val page = pageTab.selectedTabPosition
+                lifecycleScope.launch {
+                    viewModel.filterData(fromLg,toLg,fromText, toText, page)
+                    cancel()
+                }
+                setCancelable(true)
+            }
+        }.show()
     }
 
 

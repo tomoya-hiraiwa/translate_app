@@ -47,6 +47,7 @@ class TranslateFragment : Fragment() {
         helper = LibraryHelper(requireContext())
         viewModel = ViewModelProvider(requireActivity())[TranslateViewModel::class.java]
         val toLangEdit = binding.tolgEdit
+        toLangEdit.isFocusable  = false
         val fromTextEdit = binding.fromtextEdit
         val toText = binding.resText
         val anim = arrowAnimation()
