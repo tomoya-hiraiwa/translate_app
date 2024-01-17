@@ -1,5 +1,6 @@
 package edu.wsc2022.a01.mrtranslate.UI
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -32,6 +33,11 @@ class MainActivity : AppCompatActivity() {
             }
 
         })
+        val config = resources.configuration.uiMode and Configuration.UI_MODE_NIGHT_MASK
+        if (config == Configuration.UI_MODE_NIGHT_YES){
+            binding.toolbar.setNavigationIcon(R.drawable.title_icon_dark)
+        }
+        else binding.toolbar.setNavigationIcon(R.drawable.title_icon)
     }
     private fun changeFragment(fm: Fragment){
         supportFragmentManager.beginTransaction()

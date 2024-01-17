@@ -39,7 +39,7 @@
                 android:id="@+id/fromtextEdit"
                 android:layout_marginTop="40dp"
                 android:hint="Enter text"
-                android:inputType="none"
+                android:inputType="text"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
             <Button
